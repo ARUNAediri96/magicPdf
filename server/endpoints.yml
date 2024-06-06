@@ -1,0 +1,5 @@
+- url: /convert
+  action: convert_action
+  function: convert_file
+  methods:
+    - POST

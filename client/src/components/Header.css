@@ -1,0 +1,183 @@
+/* Header.css */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.brand img {
+    height: 40px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-right: 20px;
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #ff0000;
+}
+
+.has-dropdown:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 300px;
+    padding: 10px;
+}
+
+.dropdown-columns {
+    display: flex;
+}
+
+.dropdown-column {
+    flex: 1;
+    padding: 10px;
+}
+
+.dropdown .nav__title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.actions .btn {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.actions .btn:hover {
+    background-color: #e60000;
+}
+
+.hide--sm {
+    display: none;
+}
+
+.show--sm {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    .hide--sm {
+        display: inline-block;
+    }
+
+    .show--sm {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .hide--sm {
+        display: none;
+    }
+
+    .show--sm {
+        display: inline-block;
+    }
+
+    .menu--sm {
+        display: inline-block;
+        margin-left: auto;
+    }
+
+    .menu--md {
+        display: none;
+    }
+
+    .menu ul {
+        display: none;
+    }
+
+    .has-dropdown .dropdown {
+        position: static;
+        box-shadow: none;
+    }
+
+    .has-dropdown:hover .dropdown {
+        display: none;
+    }
+
+    .dropdown {
+        min-width: 100%;
+        padding: 0;
+    }
+
+    .dropdown ul {
+        padding: 0;
+    }
+
+    .dropdown a {
+        padding: 10px;
+    }
+}
+
+
+
+
