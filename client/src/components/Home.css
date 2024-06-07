@@ -18,10 +18,6 @@ body.lang-en-US.home {
     padding: 0 20px;
 }
 
-.header .brand img {
-    height: 40px;
-}
-
 .header .menu {
     display: flex;
     align-items: center;
@@ -98,12 +94,6 @@ body.lang-en-US.home {
 .header .actions {
     display: flex;
     align-items: center;
-}
-
-.header .actions a {
-    text-decoration: none;
-    color: #333;
-    margin-left: 10px;
 }
 
 .header .actions .btn {
@@ -369,7 +359,7 @@ body {
 }
 
 .block--black {
-    background-color: #333;
+    background-color: #013a4c;
     color: #fff;
 }
 
