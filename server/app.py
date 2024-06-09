@@ -11,11 +11,17 @@ def create_upload_folder():
 
 def register_routes(app):
     with open('endpoints.yml', 'r') as stream:
-        endpoints = yaml.safe_load(stream)
-        for endpoint in endpoints:
-            action_module = __import__(f"actions.{endpoint['action']}", fromlist=[''])
-            action_function = getattr(action_module, endpoint['function'])
-            app.add_url_rule(endpoint['url'], view_func=action_function, methods=endpoint['methods'])
+        endpoints_data = yaml.safe_load(stream)
+        paths = endpoints_data.get('paths', {})
+        for path, methods in paths.items():
+            for method, details in methods.items():
+                operation_id = details.get('operationId')
+                if operation_id:
+                    action_module, action_function = operation_id.split('.')
+                    action_module = __import__(f"actions.{action_module}", fromlist=[''])
+                    action_function = getattr(action_module, action_function)
+                    app.add_url_rule(path, view_func=action_function, methods=['POST'])
+
 
 create_upload_folder()
 register_routes(app)

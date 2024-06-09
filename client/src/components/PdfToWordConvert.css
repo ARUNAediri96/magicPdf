@@ -1,56 +1,12 @@
-/* Global styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+.pdf-to-word-container {
+    text-align: center;
 }
 
-/* Header styles */
-.header {
-    background-color: #6a5acd; /* SlateBlue */
-    padding: 10px 20px;
+.pdf-to-word-main {
+    padding: 40px 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    color: #fff;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-text {
-    font-size: 24px;
-    margin-right: 5px;
-    color:darkred;
-    font-weight: bold;
-}
-
-.logo-text-bold {
-    font-weight: bold;
-    color:darkred;
-    font-size: 24px;
-}
-
-.nav {
-    display: flex;
-}
-
-.nav-list {
-    list-style-type: none;
-    display: flex;
-}
-
-.nav-item {
-    margin-right: 20px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-/* Main area styles */
-.main {
-    background-color: #f8f8f8;
-    padding: 20px;
 }
 
 .file-convert-title {
@@ -108,7 +64,6 @@ body {
 }
 
 .status-message {
-    text-align: center;
     margin-top: 20px;
     color: #333;
     font-size: 16px;
@@ -120,14 +75,18 @@ body {
     color: #333;
 }
 
-.alternative-upload {
-    text-align: center;
+.progress-container {
+    width: 100%;
+    max-width: 600px; /* Optional: limit the max width of the progress bar */
     margin-top: 20px;
-    color: #333;
-    font-size: 16px;
 }
 
-/* Footer styles */
+.progress-bar {
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
 .footer {
     background-color: #333;
     padding: 10px;
@@ -139,11 +98,12 @@ body {
 
 .taskbar {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .taskbar-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
 }
