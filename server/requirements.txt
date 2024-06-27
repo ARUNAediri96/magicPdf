@@ -3,3 +3,4 @@ python-docx
 docx2pdf
 pdf2docx
 PyYAML
+PyPDF2

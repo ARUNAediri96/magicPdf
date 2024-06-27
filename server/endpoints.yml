@@ -41,3 +41,25 @@ paths:
           description: Invalid input
         '500':
           description: Server error
+
+  /merge_pdfs:
+    post:
+      operationId: convert_action.merge_pdfs
+      summary: Merge PDF Files
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: files
+          in: formData
+          type: array
+          items:
+            type: file
+          required: true
+          description: List of PDF files to merge
+      responses:
+        '200':
+          description: Merged PDF file
+        '400':
+          description: Invalid input
+        '500':
+          description: Server error
