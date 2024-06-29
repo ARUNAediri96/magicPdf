@@ -63,3 +63,53 @@ paths:
           description: Invalid input
         '500':
           description: Server error
+
+  /get_pdf_pages:
+    post:
+      operationId: convert_action.get_pdf_pages
+      summary: Get PDF Pages
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: PDF file to get number of pages
+      responses:
+        '200':
+          description: Number of pages in the PDF file
+          schema:
+            type: object
+            properties:
+              numPages:
+                type: integer
+        '400':
+          description: Invalid input
+        '500':
+          description: Server error
+
+  /split_pdf:
+    post:
+      operationId: convert_action.split_pdf
+      summary: Split PDF File
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: PDF file to be split
+        - name: ranges
+          in: formData
+          type: string
+          required: true
+          description: JSON string of page ranges to split
+      responses:
+        '200':
+          description: Split PDF files
+        '400':
+          description: Invalid input
+        '500':
+          description: Server error

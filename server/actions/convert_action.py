@@ -1,10 +1,14 @@
+import json
+import logging
 import os
 import tempfile
+import zipfile
+
 from flask import request, send_file, jsonify, after_this_request
 from werkzeug.utils import secure_filename
 from docx2pdf import convert
 from pdf2docx import Converter
-from PyPDF2 import PdfMerger
+from PyPDF2 import PdfMerger, PdfReader, PdfWriter
 import pythoncom
 
 
@@ -147,3 +151,94 @@ def merge_pdfs():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+def get_pdf_pages():
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part'}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    if file and file.filename.endswith('.pdf'):
+        try:
+            with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+                logging.debug("Saving file to temporary location.")
+                file.save(tmp_file.name)
+                logging.debug("File saved to %s", tmp_file.name)
+
+                tmp_file_path = tmp_file.name
+
+            reader = PdfReader(tmp_file_path)
+            logging.debug("PDF file read successfully.")
+
+            num_pages = len(reader.pages)
+            logging.debug("Number of pages in PDF: %d", num_pages)
+
+            os.remove(tmp_file_path)
+            logging.debug("Temporary file deleted.")
+
+            return jsonify({'numPages': num_pages}), 200
+        except Exception as e:
+            logging.error("Error processing PDF file: %s", e)
+            return jsonify({'error': str(e)}), 500
+
+    return jsonify({'error': 'Invalid file type'}), 400
+
+
+def split_pdf():
+    if 'file' not in request.files or 'ranges' not in request.form:
+        return jsonify({'error': 'Missing file or ranges'}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    if file and file.filename.endswith('.pdf'):
+        try:
+            ranges = request.form['ranges']
+            try:
+                page_ranges = json.loads(ranges)
+            except json.JSONDecodeError:
+                return jsonify({'error': 'Invalid JSON in ranges'}), 400
+
+            with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+                logging.debug("Saving file to temporary location.")
+                file.save(tmp_file.name)
+                logging.debug("File saved to %s", tmp_file.name)
+
+                tmp_file_path = tmp_file.name
+
+            reader = PdfReader(tmp_file_path)
+            logging.debug("PDF file read successfully.")
+
+            output_files = []
+            for i, page_range in enumerate(page_ranges):
+                writer = PdfWriter()
+                start_page = int(page_range['from']) - 1
+                end_page = int(page_range['to'])
+                for page_num in range(start_page, end_page):
+                    writer.add_page(reader.pages[page_num])
+
+                output_path = f"split_file_{i}.pdf"
+                with open(output_path, 'wb') as out_pdf:
+                    writer.write(out_pdf)
+                output_files.append(output_path)
+
+            # Create a ZIP file containing the split PDFs
+            zip_path = f"{tmp_file_path}_split_files.zip"
+            with zipfile.ZipFile(zip_path, 'w') as zip_file:
+                for output_file in output_files:
+                    zip_file.write(output_file, os.path.basename(output_file))
+                    os.remove(output_file)
+
+            os.remove(tmp_file_path)
+            logging.debug("Temporary file deleted.")
+
+            return send_file(zip_path, as_attachment=True, download_name='split_files.zip')
+        except Exception as e:
+            logging.error("Error processing PDF file: %s", e)
+            return jsonify({'error': str(e)}), 500
+
+    return jsonify({'error': 'Invalid file type'}), 400
