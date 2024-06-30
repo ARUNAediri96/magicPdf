@@ -1,12 +1,14 @@
 // src/components/Header.js
 import React from 'react';
+import logo from '../assets/images/logo.png';
 import './Header.css';
 const Header = () => {
     return (
         <header className="header">
            <nav>
-              <a className="brand" href="/" title="MagicPDF">
-              <img src="../assets/images/pattern-bg.png" alt="magicPDF"/>
+              <a className="brand" href="/" title="magicPDF">
+                  <img src={logo} alt="magicPDF" />
+                  <span>magicPDF</span>
               </a>
               <div className="menu">
                  <span className="menu--sm"><i className="ico ico--tools"></i></span>
