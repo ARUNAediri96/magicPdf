@@ -9,7 +9,6 @@ from werkzeug.utils import secure_filename
 from docx2pdf import convert
 from pdf2docx import Converter
 from PyPDF2 import PdfMerger, PdfReader, PdfWriter
-import pythoncom
 
 
 def convert_word_to_pdf_file():
@@ -32,12 +31,9 @@ def convert_word_to_pdf_file():
         output_path = os.path.splitext(input_path)[0] + '.pdf'
 
         try:
-            pythoncom.CoInitialize()
             convert(input_path, output_path)
         except Exception as e:
             return jsonify({'error': str(e)}), 500
-        finally:
-            pythoncom.CoUninitialize()
 
         # Extract the original filename without extension to use it in the download filename
         original_filename = os.path.splitext(file.filename)[0]
@@ -81,14 +77,11 @@ def convert_pdf_to_word_file():
         output_path = os.path.splitext(input_path)[0] + '.docx'
 
         try:
-            pythoncom.CoInitialize()
             cv = Converter(input_path)
             cv.convert(output_path, start=0, end=None)
             cv.close()
         except Exception as e:
             return jsonify({'error': str(e)}), 500
-        finally:
-            pythoncom.CoUninitialize()
 
         # Extract the original filename without extension to use it in the download filename
         original_filename = os.path.splitext(file.filename)[0]

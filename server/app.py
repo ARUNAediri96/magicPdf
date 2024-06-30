@@ -5,7 +5,7 @@ import yaml
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 def create_upload_folder():
     if not os.path.exists('uploads'):

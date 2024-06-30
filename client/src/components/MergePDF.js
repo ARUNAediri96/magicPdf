@@ -4,6 +4,8 @@ import { ProgressBar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './MergePDF.css';
 
+const BASE_URL = process.env.BACKEND_BASE_URL;
+
 const MergePDF = () => {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [status, setStatus] = useState('');
@@ -24,7 +26,7 @@ const MergePDF = () => {
         });
 
         try {
-            const response = await axios.post('/merge_pdfs', formData, {
+            const response = await axios.post(`${BASE_URL}/merge_pdfs`, formData, {
                 responseType: 'blob',
                 onUploadProgress: (progressEvent) => {
                     const totalLength = progressEvent.lengthComputable

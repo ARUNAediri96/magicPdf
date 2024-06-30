@@ -4,6 +4,8 @@ import { ProgressBar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './PdfToWordConvert.css';
 
+const BASE_URL = process.env.BACKEND_BASE_URL;
+
 const PDFtoWordConvert = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [selectedFileName, setSelectedFileName] = useState('');
@@ -25,7 +27,7 @@ const PDFtoWordConvert = () => {
         formData.append('file', selectedFile);
 
         try {
-            const response = await axios.post('/convert_pdf_to_word', formData, {
+            const response = await axios.post(`${BASE_URL}/convert_pdf_to_word`, formData, {
                 responseType: 'blob',
                 onUploadProgress: (progressEvent) => {
                     const totalLength = progressEvent.lengthComputable
