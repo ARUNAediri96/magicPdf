@@ -4,7 +4,7 @@ import { ProgressBar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './PdfToWordConvert.css';
 
-const BASE_URL = process.env.BACKEND_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const PDFtoWordConvert = () => {
     const [selectedFile, setSelectedFile] = useState(null);
