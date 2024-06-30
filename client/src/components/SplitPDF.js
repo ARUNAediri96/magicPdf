@@ -4,6 +4,8 @@ import { ProgressBar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SplitPDF.css';
 
+const BASE_URL = process.env.BACKEND_BASE_URL;
+
 const SplitPDF = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [numPages, setNumPages] = useState(null);
@@ -20,7 +22,7 @@ const SplitPDF = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('/get_pdf_pages', formData);
+            const response = await axios.post(`${BASE_URL}/get_pdf_pages`, formData);
             setNumPages(response.data.numPages);
         } catch (error) {
             console.error('Failed to get the number of pages:', error);
@@ -47,7 +49,7 @@ const SplitPDF = () => {
         formData.append('ranges', JSON.stringify(pageRanges));
 
         try {
-            const response = await axios.post('/split_pdf', formData, {
+            const response = await axios.post(`${BASE_URL}/split_pdf`, formData, {
                 responseType: 'blob',
                 onUploadProgress: (progressEvent) => {
                     const totalLength = progressEvent.lengthComputable
