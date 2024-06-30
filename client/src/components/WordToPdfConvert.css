@@ -1,0 +1,111 @@
+.word-to-pdf-container {
+    text-align: center;
+}
+
+.word-to-pdf-main {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-convert-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.file-convert-subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.file-convert-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-upload-label {
+    padding: 15px 30px;
+    background-color: #ff4d4d; /* Coral */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-icon {
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.convert-button {
+    padding: 15px 30px;
+    background-color: #4169e1; /* RoyalBlue */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.convert-button:hover {
+    background-color: #1e90ff; /* DodgerBlue */
+}
+
+.status-message {
+    margin-top: 20px;
+    color: #333;
+    font-size: 16px;
+}
+
+.selected-file {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.progress-container {
+    width: 100%;
+    max-width: 600px; /* Optional: limit the max width of the progress bar */
+    margin-top: 20px;
+}
+
+.progress-bar {
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.footer {
+    background-color: #333;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.taskbar {
+    display: flex;
+    align-items: center;
+}
+
+.taskbar-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}

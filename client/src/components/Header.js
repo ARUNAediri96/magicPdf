@@ -1,65 +1,24 @@
 // src/components/Header.js
 import React from 'react';
+import logo from '../assets/images/logo.png';
 import './Header.css';
 const Header = () => {
     return (
         <header className="header">
            <nav>
-              <a className="brand" href="/" title="iLovePDF">
-              <img src="../assets/images/pattern-bg.png" alt="Magic PDF"/>
+              <a className="brand" href="/" title="magicPDF">
+                  <img src={logo} alt="magicPDF" />
+                  <span>magicPDF</span>
               </a>
               <div className="menu">
                  <span className="menu--sm"><i className="ico ico--tools"></i></span>
-                 <span className="menu--md">All PDF tools <i className="ico ico--down"></i></span>
                  <ul>
                     <li><a href="/merge_pdf">Merge PDF</a></li>
                     <li><a href="/split_pdf">Split PDF</a></li>
                     <li><a href="/compress_pdf">Compress PDF</a></li>
-                    <li className="has-dropdown">
-                       <span>Convert PDF<i className="ico ico--down"></i>
-                       </span>
-                       <div className="dropdown">
-                          <ul>
-                             <li>
-                                <ul>
-                                   <li>
-                                      <div className="nav__title">Convert to PDF</div>
-                                   </li>
-                                   <li><a href="/jpg_to_pdf"><i className="ico ico--jpgpdf"></i>JPG to PDF</a></li>
-                                   <li><a href="/word_to_pdf"><i className="ico ico--wordpdf"></i>WORD to PDF</a></li>
-                                   <li><a href="/powerpoint_to_pdf"><i className="ico ico--powerpointpdf"></i>POWERPOINT
-                                      to PDF</a>
-                                   </li>
-                                   <li><a href="/excel_to_pdf"><i className="ico ico--excelpdf"></i>EXCEL to PDF</a>
-                                   </li>
-                                   <li><a href="/html-to-pdf"><i className="ico ico--htmlpdf"></i> HTML to PDF</a></li>
-                                </ul>
-                             </li>
-                             <li>
-                                <ul>
-                                   <li>
-                                      <div className="nav__title">Convert from PDF</div>
-                                   </li>
-                                   <li><a href="/pdf_to_jpg"><i className="ico ico--pdfjpg"></i> PDF to JPG</a></li>
-                                   <li><a href="/pdf_to_word"><i className="ico ico--pdfword"></i> PDF to WORD</a></li>
-                                   <li><a href="/pdf_to_powerpoint"><i className="ico ico--pdfpowerpoint"></i> PDF to
-                                      POWERPOINT</a>
-                                   </li>
-                                   <li><a href="/pdf_to_excel"><i className="ico ico--pdfexcel"></i> PDF to EXCEL</a>
-                                   </li>
-                                   <li><a href="/convert-pdf-to-pdfa"><i className="ico ico--pdfa"></i> PDF to
-                                      PDF/A</a>
-                                   </li>
-                                </ul>
-                             </li>
-                          </ul>
-                       </div>
-                    </li>
                  </ul>
                  <ul className="menu__main">
                     <li className="has-dropdown has-dropdown--full">
-                       <span>All PDF tools<i className="ico ico--down"></i>
-                       </span>
                        <div className="dropdown dropdown--full">
                           <ul>
                              <li>

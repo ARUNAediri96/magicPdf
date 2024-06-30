@@ -1,4 +1,8 @@
 Flask
 python-docx
 docx2pdf
+pdf2docx
 PyYAML
+PyPDF2
+gunicorn==20.1.0
+flask-cors

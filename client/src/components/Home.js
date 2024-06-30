@@ -704,8 +704,8 @@ function Home() {
               <div className="title1">Looking for another solution?</div>
             </div>
             <div className="block__body">
-              <div className="row justify-content-center">
-                <div className="col-md-4">
+              <div className="separator-row block__container-justify-content-center">
+                <div className="separator-row-col-md-4">
                   <div className="infounit infounit--fill">
                     <div className="infounit__title">iLovePDF Desktop</div>
                     <div className="infounit__body">
@@ -715,7 +715,7 @@ function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-4">
+                <div className="separator-row-col-md-4">
                   <div className="infounit infounit--fill">
                     <div className="infounit__title">iLovePDF Mobile</div>
                     <div className="infounit__body">
@@ -725,7 +725,7 @@ function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-4">
+                <div className="separator-row-col-md-4">
                   <div className="infounit infounit--fill">
                     <div className="infounit__title">iLoveIMG</div>
                     <div className="infounit__body">
@@ -744,8 +744,8 @@ function Home() {
         <div className="block block--grey-admin">
           <div className="block__container">
             <div className="block__header">
-              <div className="title1 text-center">The PDF software trusted by millions of users</div>
-              <div className="subtitle1 text-center">iLovePDF is your number one web app for editing PDF with ease.
+              <div className="title1 block__header-text-center">The PDF software trusted by millions of users</div>
+              <div className="subtitle1 block__header-text-center">iLovePDF is your number one web app for editing PDF with ease.
                 Enjoy all the tools you need to work efficiently with your digital documents while keeping your data
                 safe and secure.
               </div>
@@ -758,16 +758,16 @@ function Home() {
 
         <div className="block block--black">
           <div className="block__container section">
-            <div className="row align-items-center justify-content-center d-lg-flex">
-              <div className="col-lg-7 col-md-12 section__item">
+            <div className="separator-row block__container-align-items-center block__container-justify-content-center block__container-d-lg-flex">
+              <div className="block__container-col-lg-7 block__container-col-md-12 section__item">
                 <div className="title1">Get more with Premium</div>
                 <div className="subtitle1">
                   Complete projects faster with batch file processing, convert scanned documents with OCR and e-sign
                   your business agreements.
                 </div>
-                <a href="/user/premium" className="btn btn--premium">Get Premium</a>
+                <a href="/user/premium" className="btn-user-premium btn--premium">Get Premium</a>
               </div>
-              <div className="col-lg-5 col-md-8 col-sm-8 mt-md-5 mt-sm-5 d-flex justify-content-lg-end section__item">
+              <div className="footer-main-col-lg-5 footer-main-col-md-8 footer-main-col-sm-8 footer-main-mt-md-5 footer-main-mt-sm-5 footer-main-d-flex footer-main-justify-content-lg-end section__item">
                 <svg width="365" height="269" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g filter="url(#a)">
                     <path
@@ -974,9 +974,9 @@ function Home() {
         </div>
       </div>
       <div className="footer-main">
-        <div className="container">
-          <div className="d-flex justify-content-between flex-wrap">
-            <div className="col-md-3 col-sm-6 col-xs-12">
+        <div className="footer-main-container">
+          <div className="footer-main-d-flex footer-main-justify-content-between footer-main-flex-wrap">
+            <div className="footer-main-col-md-3 footer-main-col-sm-6 footer-main-col-xs-12">
               <div className="footer-main__title">iLovePDF</div>
               <ul className="footer-main__nav">
                 <li>
@@ -995,7 +995,7 @@ function Home() {
                 </li>
               </ul>
             </div>
-            <div className="col-md-3 col-sm-6 col-xs-12">
+            <div className="footer-main-col-md-3 footer-main-col-sm-6 footer-main-col-xs-12">
               <div className="footer-main__title">Product</div>
               <ul className="footer-main__nav">
                 <li>
@@ -1011,7 +1011,7 @@ function Home() {
                   <a href="https://www.iloveimg.com/" target="_blank">iloveimg.com</a></li>
               </ul>
             </div>
-            <div className="col-md-3 col-sm-6 mt-md-0 mt-sm-5 col-xs-12">
+            <div className="footer-main-col-md-3 footer-main-col-sm-6 mt-md-0 footer-main-mt-sm-5 footer-main-col-xs-12">
               <div className="footer-main__title">Solutions</div>
               <ul className="footer-main__nav">
                 <li>
@@ -1022,7 +1022,7 @@ function Home() {
                 </li>
               </ul>
             </div>
-            <div className="col-md-3 col-sm-6 mt-md-0 mt-sm-5 col-xs-12">
+            <div className="footer-main-col-md-3 footer-main-col-sm-6 mt-md-0 footer-main-mt-sm-5 footer-main-col-xs-12">
               <div className="footer-main__title">Company</div>
               <ul className="footer-main__nav">
                 <li>
@@ -1052,8 +1052,8 @@ function Home() {
                 src="/img/logos/app_store.svg" alt="App Store"/></a></li>
           </ul>
           <div className="separator"></div>
-          <div className="row">
-            <div className="col-md-4">
+          <div className="separator-row">
+            <div className="separator-row-col-md-4">
               <div className="footer-big__lang">
                         <span className="lang__current">
     <i className="ico ico--world"></i>
@@ -1095,7 +1095,7 @@ function Home() {
                 </ul>
               </div>
             </div>
-            <div className="col-md-8">
+            <div className="footer-main-col-md-8">
               <div className="footer-main__info">
                 <div className="slogan">
                   <p>&copy; iLovePDF 2024 &reg; - Your PDF Editor</p>
