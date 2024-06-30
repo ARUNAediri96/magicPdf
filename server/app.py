@@ -1,9 +1,11 @@
 import os
 from flask import Flask
+from flask_cors import CORS
 import yaml
 
 
 app = Flask(__name__)
+CORS(app)
 
 def create_upload_folder():
     if not os.path.exists('uploads'):
